@@ -20,13 +20,13 @@ Deletion Rotations:
 	// https://www.youtube.com/watch?v=5hE2cZLTtJg
 	Case 1: Deletion from ~~<<right subtree>>~~ -> Apply R rotations
 				
-				R0 Rotation ~ LL Rotation if BF(node) = +2 && BF(node->left child) = +1
+				R0 Rotation ~ LL Rotation if BF(node) = +2 && BF(node->left child) = 0
 				R1 Rotation ~ LL Rotation if BF(node) = +2 and BF(node->left child) =  +1
 				R-1 Rotation ~ LR Rotation if BF(node) = +2 and BF(node->left child) = -1
 	
-	Case 1: Deletion from ~~<<left subtree>>~~ -> Apply R rotations
+	Case 1: Deletion from ~~<<left subtree>>~~ -> Apply L rotations
 
-				L0 Rotation ~ RR Rotation if BF(node) = -2 && BF(node->right child) = +1
+				L0 Rotation ~ RR Rotation if BF(node) = -2 && BF(node->right child) = 0
 		**		L1 Rotation ~ RL Rotation if BF(node) = -2 and BF(node->right child) =  +1
 				L-1 Rotation ~ RR Rotation if BF(node) = -2 and BF(node->right child) = -1
 */
