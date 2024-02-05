@@ -6,7 +6,8 @@ int CQ[CQMAX];
 int front = -1,  rear = -1;
 
 int isFull() {
-	return (front == (rear + 1) % CQMAX);
+	return ((front == rear + 1) || (front == 0 && rear == capacity - 1));
+	//return (front == (rear + 1) % CQMAX);
 }
 int isEmpty() {
 	return front == -1;
