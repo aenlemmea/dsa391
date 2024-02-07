@@ -146,43 +146,50 @@ node* reverse(node* head)
 	return r;
 }
 
-node* insert_any(node* h, int location, int item)
+//node* insert_any(node* h, int location, int item)
+//{
+//	int i = 1;
+//	struct node* temp, * ptr;
+//	temp = (node*)malloc(sizeof(node));
+//	temp->info = item;
+//	
+//	ptr = h;
+//	while (i != location - 1) {
+//		ptr = ptr->next;
+//		i++;
+//	}
+//
+//	temp->next = ptr->next; // Steal whatever ptr was pointing to.
+//	ptr->next = temp; // Put newly created node at where it was pointing.
+//
+//	return h;
+//}
+
+void insert_any(node* front, int pos, int data)
 {
-	int c = 0, m = count(h);
-	node* p = h;
-	node* r = p;
-	node* q = (node*)malloc(sizeof(node*));
-
-	if (h == NULL)
+	node* temp, * locptr;
+	int count;
+	temp = (node*)malloc(sizeof(node));
+	temp->info = data;
+	
+	locptr = front;
+	if (front == NULL)
 	{
-		printf("List doesn't exists\n");
-		return r;
+		temp = front;
+		temp->next = NULL;
 	}
-
-	if (location == 0)
-	{
-		r = insert_before(h, item);
-		return r;
-	}
-
-	if (location < m)
-	{
-		for (; p != NULL; p = p->next)
+	else {
+		for (count = 0, locptr = front; count < pos - 1; count++)
 		{
-			c++;
-			if (c == location - 1)
+			locptr = locptr->next;
+			if (locptr == NULL)
 			{
-				break;
+				printf("Specified  position  cannot  be  reached and node  cannot  be  inserted  \n");
+				return;
 			}
 		}
-
-		q->next = p->next;
-		p->next = q;
-		q->info = item;
-	}
-	else if (location == (m - 1))
-	{
-		insert_after(h, item);
+		temp->next = locptr->next;
+		locptr->next = temp;
 	}
 }
 
@@ -331,7 +338,7 @@ int main()
 			scanf("%d", &item);
 			printf("\nWhat location do you want to add the item?\n");
 			scanf("%d", &location);
-			head = insert_any(head, location, item);
+			insert_any(head, location, item);
 			location = item = 0;
 			printf("\nDone!\n");
 			break;
