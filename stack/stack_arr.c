@@ -46,7 +46,11 @@ int main() {
 	while (1) {
 		printf("\n\n1. Push \n2. Pop \n3. Display \n4. Exit");
 		printf("\nEnter the choice: \n");
-		scanf("%d", &choice);
+		if (scanf("%d", &choice) != 1) {
+			while (getchar() != '\n');
+			printf("Invalid input. Please enter a number between 1 and 4.\n");
+			continue;
+		}
 		switch (choice) {
 		case 1:
 			push();

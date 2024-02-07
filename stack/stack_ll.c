@@ -35,7 +35,7 @@ void display() {
 	struct node* temp = top;
 	if (top == NULL) {
 		printf("Stack Underflow");
-	} {
+	} else  {
 		while (temp != NULL) {
 			printf("%7d", temp->info);
 			temp = temp->next;
@@ -48,7 +48,12 @@ int main() {
 	while (1) {
 		printf("\n\n1. Push \n2. Pop \n3. Display \n4. Exit");
 		printf("\nEnter the choice: \n");
-		scanf("%d", &choice);
+		if (scanf("%d", &choice) != 1) {
+			while (getchar() != '\n');
+			printf("Invalid input. Please enter a number between 1 and 4.\n");
+			continue;
+		}
+
 		switch (choice) {
 		case 1:
 			push();
@@ -63,6 +68,7 @@ int main() {
 			exit(0);
 		default:
 			printf("Enter a valid choice between [1-4]\n");
+			break;
 		}
 	}
 }
