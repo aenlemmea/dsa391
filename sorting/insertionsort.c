@@ -13,10 +13,9 @@ void insertionsort(int *arr, int n) {
 		for (i = j - 1; i >= 0 && k < arr[i]; i--)
 		{
 			arr[i + 1] = arr[i];
-			arr[i + 1] = k;
 		}
+		arr[i + 1] = k;
 	}
-
 }
 
 int main() {
