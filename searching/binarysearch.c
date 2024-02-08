@@ -19,7 +19,7 @@ int binarysearch(int *arr, int left, int right, int tosearch) {
 }
 
 int main() {
-	int arr[] = { 3, 5, 6, 7, 9, 10 }; // Assume sorted elements.
+	int arr[] = { 4, 5, 6}; // Assume sorted elements.
 	int n = 6, i, tosearch;
 
 	printf("\nWhat element you want to search?: ");

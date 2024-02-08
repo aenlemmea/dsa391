@@ -36,6 +36,7 @@ void dequeue() {
         free(temp);
     }
 }
+
 void display() {
     struct node* temp;
     if ((front == NULL) && (rear == NULL)) {
@@ -56,7 +57,12 @@ int main() {
     while (1) {
         printf("\n\n1. Enqueue\n2. Dequeue \n3. Display \n4. Exit");
         printf("\nEnter your choice: \n");
-        scanf("%d", &choice);
+        
+        if (scanf("%d", &choice) != 1) {
+            while (getchar() != '\n');
+            printf("\nInvalid Input");
+            continue;
+        }
 
         switch (choice) {
         case 1:
